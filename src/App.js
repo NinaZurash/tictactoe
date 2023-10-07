@@ -1,7 +1,10 @@
+import React from 'react'
+import Board from './components/board'
+
 function App() {
   return (
     <div>
-      <header>hello</header>
+      <Board />
     </div>
   )
 }
