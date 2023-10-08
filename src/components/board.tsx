@@ -16,7 +16,6 @@ export default function Board({ dimension }: BoardProps) {
       return newValues
     })
     setTictac(tictac === 'X' ? '0' : 'X')
-    console.log(tictac)
   }
   return (
     <div>
