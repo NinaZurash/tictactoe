@@ -4,10 +4,12 @@ interface SquareProps {
 }
 
 export default function Square({ value = 'X', onClick }: SquareProps) {
+  const textColor = value === 'X' ? 'text-blue-500' : 'text-red-500'
+
   return (
     <button
       onClick={onClick}
-      className="px-4 py-3 font-medium bg-blue-50 hover:bg-blue-100 text-blue-500 text-3xl w-20 h-20"
+      className={`${textColor} rounded-md select-none px-4 py-3 shadow-sm border border-gray-50 font-medium bg-gray-100   text-3xl w-24 h-24`}
     >
       {value}
     </button>
