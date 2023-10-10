@@ -5,6 +5,56 @@ interface BoardProps {
   dimension: number
 }
 
+const getWinningCombinations = (dimension: number): number[][] => {
+  const combinations: number[][] = Array.from(
+    { length: dimension * 2 + 1 },
+    () => [],
+  )
+
+  for (let i = 0; i < dimension; i++) {
+    // get diagonal
+    combinations[0].push(i * dimension + i)
+
+    for (let j = 0; j < dimension; j++) {
+      // get rows
+      combinations[i + 1].push(i * dimension + j)
+
+      //get collumns
+      combinations[i + dimension + 1].push(dimension * j + i)
+    }
+  }
+
+  return combinations
+}
+
+const checkIfWinning = (
+  combinations: number[][],
+  values: string[],
+): boolean => {
+  const filteredX = values.reduce((accumulator: number[], value, index) => {
+    if (value === 'X') {
+      accumulator.push(index)
+    }
+    return accumulator
+  }, [])
+
+  const filtered0 = values.reduce((accumulator: number[], value, index) => {
+    if (value === '0') {
+      accumulator.push(index)
+    }
+    return accumulator
+  }, [])
+
+  const equal = combinations.some((combArray) => {
+    return (
+      JSON.stringify(combArray) === JSON.stringify(filteredX) ||
+      JSON.stringify(combArray) === JSON.stringify(filtered0)
+    )
+  })
+
+  return equal
+}
+
 export default function Board({ dimension }: BoardProps) {
   const [values, setValues] = useState(Array(dimension * dimension).fill(''))
   const [tictac, setTictac] = useState('X')
@@ -14,10 +64,16 @@ export default function Board({ dimension }: BoardProps) {
     setValues((prevValues) => {
       const newValues = [...prevValues]
       newValues[squareIndex] = tictac
+
+      const finishGame = checkIfWinning(
+        getWinningCombinations(dimension),
+        newValues,
+      )
+      finishGame && window.alert('game is finished')
       return newValues
     })
+
     setTictac(tictac === 'X' ? '0' : 'X')
-    console.log(values)
   }
 
   return (
