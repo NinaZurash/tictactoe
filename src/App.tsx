@@ -13,7 +13,7 @@ export default function App() {
       {winner && <Confetti />}
 
       <h1 className="text-4xl  font-medium">TicTacToe</h1>
-      <Board dimension={4} onGameFinished={handleGameFinished} />
+      <Board dimension={3} onGameFinished={handleGameFinished} />
     </div>
   );
 }
