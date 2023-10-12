@@ -21,7 +21,7 @@ export default function App() {
         {gameStatus === "draw" ? "It's a draw" : ` Winner is ${gameStatus}!`}
       </div>
       <Board
-        dimension={4}
+        dimension={3}
         winner={gameStatus}
         updateGameStatus={handleGameUpdateStatus}
       />
