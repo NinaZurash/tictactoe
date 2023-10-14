@@ -3,6 +3,7 @@ import Square from "./square";
 import type { GameStatus } from "@/App";
 import { getWinningCombinations } from "@/utils/getWinningCombinations";
 import { checkGameStatus } from "@/utils/checkGameStatus";
+import { Button } from "./ui/button";
 
 interface BoardProps {
   dimension: number;
@@ -57,8 +58,8 @@ export default function Board({
         ))}
       </div>
 
-      <button
-        className="bg-gray-200 text-gray-600 hover:text-black transition-colors px-8 py-3 rounded-md shadow-md"
+      <Button
+        className="transition-colors px-8 py-3 dark:text-white border-gray-50 border"
         onClick={() => {
           setValues(Array(dimension * dimension).fill(""));
           updateGameStatus("playing");
@@ -66,7 +67,7 @@ export default function Board({
         }}
       >
         Reset
-      </button>
+      </Button>
     </div>
   );
 }
