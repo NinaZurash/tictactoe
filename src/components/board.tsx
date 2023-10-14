@@ -20,6 +20,10 @@ export default function Board({
   const [player, setPlayer] = useState<GameStatus>("0");
 
   useEffect(() => {
+    setValues(Array(dimension * dimension).fill(""));
+  }, [dimension]);
+
+  useEffect(() => {
     const gameStatus = checkGameStatus(
       getWinningCombinations(dimension),
       values,
