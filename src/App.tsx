@@ -12,7 +12,8 @@ export default function App() {
   const [boardDimensions, setBoardDimensions] = useState(3);
 
   const handleDimensions = (e: ChangeEvent<HTMLInputElement>) => {
-    setBoardDimensions(Number(e.target.value));
+    const value = Number(e.target.value);
+    if (value <= 20) setBoardDimensions(value);
   };
 
   const handleGameUpdateStatus = (value: GameStatus) => {
@@ -32,7 +33,7 @@ export default function App() {
           handleDimensions={handleDimensions}
         />
         {["X", "0"].includes(gameStatus) && <Confetti />}
-        <h1 className="text-4xl  font-medium">TicTacToe</h1>
+        <h1 className="text-4xl font-serif font-medium">Tic-Tac-Toe</h1>
         <div className={visible}>
           {gameStatus === "draw" ? "It's a draw" : ` Winner is ${gameStatus}!`}
         </div>

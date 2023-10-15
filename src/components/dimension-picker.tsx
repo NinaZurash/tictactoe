@@ -25,14 +25,14 @@ export default function DimensionPickerPopOver({
         <div className="grid gap-4">
           <div className="space-y-2">
             <p className="text-sm text-muted-foreground">
-              Set the dimensions for the tic tac toe.
+              Set the dimensions (max: 20)
             </p>
           </div>
 
           <Input
             id="dimensions"
             value={boardDimensions}
-            defaultValue="ex: 3"
+            defaultValue="3"
             className="col-span-2 h-8"
             onChange={handleDimensions}
           />

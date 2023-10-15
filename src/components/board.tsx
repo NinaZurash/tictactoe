@@ -55,6 +55,7 @@ export default function Board({
                   onClick={() =>
                     winner === "playing" && handleClick(squareIndex)
                   }
+                  dimension={dimension}
                 />
               );
             })}
