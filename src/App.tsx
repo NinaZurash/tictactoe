@@ -24,6 +24,7 @@ export default function App() {
 
   return (
     <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
+      <div></div>
       <div className="min-h-screen flex justify-center flex-col  gap-8 items-center">
         <div className="absolute top-0 right-0 mt-4 mr-4">
           <ModeToggle />
