@@ -21,7 +21,6 @@ export default function App() {
   };
 
   const visible = gameStatus === "playing" ? "invisible" : "visible";
-  console.log("hi");
   return (
     <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
       <div className="min-h-screen flex justify-center flex-col  gap-8 items-center">
