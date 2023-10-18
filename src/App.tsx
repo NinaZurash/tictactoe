@@ -19,7 +19,7 @@ export default function App() {
   const handleGameUpdateStatus = (value: GameStatus) => {
     setGameStatus(value);
   };
-
+  console.log("sdkgj");
   const visible = gameStatus === "playing" ? "invisible" : "visible";
   return (
     <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
